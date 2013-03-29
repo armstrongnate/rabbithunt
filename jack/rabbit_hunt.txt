@@ -1,0 +1,4 @@
+* List of jack functions can be found in chapter 12 of the textbook. page 100 of textbook.
+* Write Painter class first and its functions. Test each method after it's written.
+* Will be using wait() from OS standard library. 500 milliseconds is half a second.
+* When compiling, use >> ./jackComiler.sh $PWD../RabitHunt
