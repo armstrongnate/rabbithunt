@@ -1,0 +1,68 @@
+class Painter {
+  method int getLeft(int x_in)
+  {
+    return (12*x_in)+8;
+  }
+
+  method int getTop(int y_in)
+  {
+    return (12*y_in)+8;
+  }
+
+  method void drawBlank(int x_in, int y_in)
+  {
+    var int x;
+    let x = getLeft(x_in);
+    var int y;
+    let y = getTop(y_in);
+
+    do Screen.setColor(true);
+    do Screen.drawRectangle(x, y, x+13, y-13);
+    do Screen.setColor(false);
+    do Screen.drawRectangle(x+1, y-1, x+12, y-12);
+
+    return;
+  }
+
+  method void drawBush(int x_in, int y_in)
+  {
+    var int x;
+    let x = getLeft(x_in);
+    var int y;
+    let y = getTop(y_in);
+
+    do Screen.setColor(true);
+    do Screen.drawCircle(x+7, y-7, 6);
+
+    return;
+  }
+
+  method void drawRabbit(int x_in, int y_in)
+  {
+    var int x;
+    let x = getLeft(x_in)+7
+    var int y;
+    let y = getTop(y_in)-8
+    do Screen.setColor(true);
+    do Screen.drawCircle(x, y, 4);
+    do drawLine(x-3, y+3, x-5, y+7);
+    do drawLine(x+3, y+3, x+5, y+7);
+
+    return;
+  }
+
+  method void drawFox(int x_in, int y_in)
+  {
+    var int x;
+    let x = getLeft(x_in)+7
+    var int y;
+    let y = getTop(y_in)-8
+    do Screen.setColor(true);
+    do Screen.drawCircle(x, y, 4);
+    do drawLine(x-3, y+3, x-5, y+5);
+    do drawLine(x+3, y+3, x+5, y+5);
+
+    return;
+  }
+
+}
