@@ -11,9 +11,8 @@ class Painter {
 
   method void drawBlank(int x_in, int y_in)
   {
-    var int x;
+    var int x, y;
     let x = getLeft(x_in);
-    var int y;
     let y = getTop(y_in);
 
     do Screen.setColor(true);
@@ -27,8 +26,8 @@ class Painter {
   method void drawBush(int x_in, int y_in)
   {
     var int x;
-    let x = getLeft(x_in);
     var int y;
+    let x = getLeft(x_in);
     let y = getTop(y_in);
 
     do Screen.setColor(true);
@@ -40,8 +39,8 @@ class Painter {
   method void drawRabbit(int x_in, int y_in)
   {
     var int x;
-    let x = getLeft(x_in)+7
     var int y;
+    let x = getLeft(x_in)+7
     let y = getTop(y_in)-8
     do Screen.setColor(true);
     do Screen.drawCircle(x, y, 4);
@@ -54,8 +53,8 @@ class Painter {
   method void drawFox(int x_in, int y_in)
   {
     var int x;
-    let x = getLeft(x_in)+7
     var int y;
+    let x = getLeft(x_in)+7
     let y = getTop(y_in)-8
     do Screen.setColor(true);
     do Screen.drawCircle(x, y, 4);

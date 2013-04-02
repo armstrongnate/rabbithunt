@@ -1,0 +1,13 @@
+function Fox.new 2
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 0
+pop local 0
+push constant 8
+call Random.next 1
+pop local 1
+push pointer 0
+return

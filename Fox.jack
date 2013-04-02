@@ -1,0 +1,15 @@
+class Fox
+{
+  field Board board;
+
+  constructor Fox new(Board board_in)
+  {
+    var boolean seen_rabbit;
+    var int direction;
+    let board = board_in;
+    let seen_rabbit = false;
+    let direction = Random.next(8);
+
+    return this;
+  }
+}

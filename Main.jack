@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    var Board board;
+    let board = Board.new(20);
+
+    return;
+  }
+}

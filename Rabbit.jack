@@ -1,0 +1,15 @@
+class Rabbit
+{
+  field Board board;
+
+  constructor Rabbit new(Board board_in)
+  {
+    let board = board_in;
+    return this;
+  }
+
+  method boolean move()
+  {
+    return board.moveRabbit(Random.next(8));
+  }
+}
