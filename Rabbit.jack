@@ -8,8 +8,11 @@ class Rabbit
     return this;
   }
 
-  method boolean move()
+  method void move()
   {
-    return board.moveRabbit(Random.next(8));
+    var int dir;
+    let dir = Random.next(8);
+    do board.moveRabbit(Random.next(8));
+    return;
   }
 }

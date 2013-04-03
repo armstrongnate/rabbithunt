@@ -1,0 +1,176 @@
+function Painter.getLeft 0
+push constant 12
+push argument 0
+call Math.multiply 2
+push constant 8
+add
+return
+function Painter.getTop 0
+push constant 12
+push argument 0
+call Math.multiply 2
+push constant 8
+add
+return
+function Painter.drawBlank 2
+push argument 0
+call Painter.getLeft 1
+pop local 0
+push argument 1
+call Painter.getTop 1
+pop local 1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 1
+push local 0
+push constant 13
+add
+push local 1
+push constant 13
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push local 0
+push constant 1
+add
+push local 1
+push constant 1
+add
+push local 0
+push constant 12
+add
+push local 1
+push constant 12
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Painter.drawBush 2
+push argument 0
+call Painter.getLeft 1
+pop local 0
+push argument 1
+call Painter.getTop 1
+pop local 1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push constant 7
+add
+push local 1
+push constant 7
+add
+push constant 6
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Painter.drawRabbit 2
+push argument 0
+call Painter.getLeft 1
+push constant 7
+add
+pop local 0
+push argument 1
+call Painter.getTop 1
+push constant 8
+add
+pop local 1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 1
+push constant 4
+call Screen.drawCircle 3
+pop temp 0
+push local 0
+push constant 3
+add
+push local 1
+push constant 3
+add
+push local 0
+push constant 5
+add
+push local 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push local 0
+push constant 3
+add
+push local 1
+push constant 3
+add
+push local 0
+push constant 5
+add
+push local 1
+push constant 7
+add
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function Painter.drawFox 2
+push argument 0
+call Painter.getLeft 1
+push constant 7
+add
+pop local 0
+push argument 1
+call Painter.getTop 1
+push constant 8
+add
+pop local 1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 1
+push constant 4
+call Screen.drawCircle 3
+pop temp 0
+push local 0
+push constant 3
+add
+push local 1
+push constant 3
+add
+push local 0
+push constant 5
+add
+push local 1
+push constant 5
+add
+call Screen.drawLine 4
+pop temp 0
+push local 0
+push constant 3
+add
+push local 1
+push constant 3
+add
+push local 0
+push constant 5
+add
+push local 1
+push constant 5
+add
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return

@@ -1,8 +1,46 @@
-class Main {
-  function void main() {
-    var Board board;
-    let board = Board.new(20);
+class Main
+{
+    function void main()
+    {
+  var int seed;
+        var Board board;
+        var Rabbit rabbit;
+        var Fox fox;
+        var int i;
+        var bool foxWon;
+        
+        let foxWon = false;
 
-    return;
-  }
+  let seed = Keyboard.readInt("Please give a seed: ");
+
+        do Random.init(seed);
+
+        let board = Board.new(20);
+        let rabbit = Rabbit.new(board);
+        let fox = Fox.new(board);
+
+        let i = 0;
+        while (i < 100)
+        {
+            do board.counter(i + 1);
+            do rabbit.move();
+            do Sys.wait(500);
+            do fox.move();
+
+            let foxWon = board.foxWon();
+            if (foxWon) {
+                let i = 100;
+            }
+            
+      let i = i + 1;
+        }
+
+        if (foxWon) {
+            do board.gameover("Fox wins!");
+            return;
+        }
+        do board.gameover("Rabbit wins!");
+
+        return;
+    }
 }

@@ -1,15 +1,133 @@
 class Fox
 {
-  field Board board;
+    field Board board;
+    field int dir;
+    
+    field bool seenRabbit;
+    field int rabbitDist;
+    
+    constructor Fox new(Board _board)
+    {
+        let board = _board;
+        let seenRabbit = false;
+        let dir = Random.next(8);
 
-  constructor Fox new(Board board_in)
-  {
-    var boolean seen_rabbit;
-    var int direction;
-    let board = board_in;
-    let seen_rabbit = false;
-    let direction = Random.next(8);
+        return this;
+    }
 
-    return this;
-  }
+    method void reportDistance()
+    {
+        var String str, dist;
+        let dist = "  ";
+        let str = "Rabbit is   units away!"; // 9, 10
+        do dist.setInt(rabbitDist);
+        do str.setCharAt(10, dist.charAt(0));
+
+        if (dist.length() > 1) {
+            do str.setCharAt(11, dist.charAt(1));
+        }
+
+        do board.report(str);
+
+        return;
+    }
+
+    method void move()
+    {
+        var int x, y, dist, i, blockage;
+        var bool didMove;
+
+        let x = board.getFoxX();
+        let y = board.getFoxY();
+
+        //Check all 8 directions
+        let i = 0;
+        while (i < 8)
+        {
+            let blockage = board.getBlockage(x, y, i);
+            if (blockage = 2)
+            {
+                let seenRabbit = true;
+                let rabbitDist = board.getDistance(x, y, i);
+                let dir = i;
+
+                do reportDistance();
+                
+                let i = 9;
+            }
+            let i = i + 1;
+        }
+
+        if (seenRabbit)
+        {
+            do board.moveFox(dir);
+            let rabbitDist = rabbitDist - 1;
+
+            if (rabbitDist = 0)
+            {
+                let blockage = board.getBlockage(x, y, dir);
+
+                if (blockage = 2) {
+                    do board.report("Fox got Rabbit!");
+                }
+                else {
+                    do board.report("Fox lost the rabbit!");
+                    let seenRabbit = false;
+                }
+            }
+            return;
+        }
+
+        let dir = Random.next(8);
+        let didMove = board.moveFox(dir);
+
+        if (~didMove)
+        {
+            let dir = Fox.wrapDir(dir + 1);
+            let didMove = board.moveFox(dir);
+            if (didMove) {
+                return;
+            }
+
+            let dir = Fox.wrapDir(dir - 2);
+            let didMove = board.moveFox(dir);
+            if (didMove) {
+                return;
+            }
+
+            let dir = Random.next(8);
+            let didMove = board.moveFox(dir);
+
+            if (didMove) {
+                return;
+            }
+
+            let i = 0;
+            while (i < 8) {
+                let dir = Fox.wrapDir(dir + 1);
+                let didMove = board.moveFox(dir);
+                if (didMove) {
+                    return;
+                }
+                let i = i + 1;
+            }
+
+            do board.report("Fox is stuck!");
+        }
+        
+        return;
+    }
+
+    function int wrapDir(int dir)
+    {
+        if (dir > 7)
+        {
+            let dir = 0;
+        }
+        if (~(dir > -1))
+        {
+            let dir = 7;
+        }
+        return dir;
+    }
 }
