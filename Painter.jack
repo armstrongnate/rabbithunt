@@ -40,12 +40,12 @@ class Painter {
   {
     var int x;
     var int y;
-    let x = getLeft(x_in)+7
-    let y = getTop(y_in)-8
+    let x = getLeft(x_in)+7;
+    let y = getTop(y_in)-8;
     do Screen.setColor(true);
     do Screen.drawCircle(x, y, 4);
-    do drawLine(x-3, y+3, x-5, y+7);
-    do drawLine(x+3, y+3, x+5, y+7);
+    do Screen.drawLine(x-3, y+3, x-5, y+7);
+    do Screen.drawLine(x+3, y+3, x+5, y+7);
 
     return;
   }
@@ -54,12 +54,12 @@ class Painter {
   {
     var int x;
     var int y;
-    let x = getLeft(x_in)+7
-    let y = getTop(y_in)-8
+    let x = getLeft(x_in)+7;
+    let y = getTop(y_in)-8;
     do Screen.setColor(true);
     do Screen.drawCircle(x, y, 4);
-    do drawLine(x-3, y+3, x-5, y+5);
-    do drawLine(x+3, y+3, x+5, y+5);
+    do Screen.drawLine(x-3, y+3, x-5, y+5);
+    do Screen.drawLine(x+3, y+3, x+5, y+5);
 
     return;
   }
